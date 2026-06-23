@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+
+# Environment variables — never commit API keys
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Project data — too large for git, too sensitive for public repos
+data/raw/
+data/processed/
+
+# Persisted indexes — rebuilt from data, not source artifacts
+chroma_db/
+bm25_cache/
+
+# Keep directory scaffolding
+!data/raw/.gitkeep
+!data/processed/.gitkeep

@@ -1,0 +1,37 @@
+# ── Document ingestion ────────────────────────────────────────────────────────
+sec-edgar-downloader>=5.3.0
+unstructured>=0.15.0          # table-aware PDF extraction (no [local] to avoid torch conflict)
+pdfplumber>=0.11.0             # structured table fallback
+
+# ── Embeddings & vector store ─────────────────────────────────────────────────
+# Install PyTorch CPU-only BEFORE running this file:
+# pip install torch --index-url https://download.pytorch.org/whl/cpu
+sentence-transformers>=3.0.0
+chromadb>=0.5.0
+
+# ── Keyword search ────────────────────────────────────────────────────────────
+rank-bm25>=0.2.2
+
+# ── LLM & orchestration ───────────────────────────────────────────────────────
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-groq>=0.2.0
+langgraph>=0.2.0
+groq>=0.11.0
+
+# ── Reranking ─────────────────────────────────────────────────────────────────
+cohere>=5.0.0
+
+# ── Evaluation ────────────────────────────────────────────────────────────────
+ragas>=0.2.0
+datasets>=3.0.0               # HuggingFace datasets (FiQA)
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+tiktoken>=0.7.0               # token counting for chunker
+pyyaml>=6.0.0                 # versioned prompt configs
+numpy>=1.26.0
+pandas>=2.0.0
+tqdm>=4.66.0
+loguru>=0.7.0                 # structured logging
