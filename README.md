@@ -96,7 +96,7 @@ FiQA dataset → RAGAS (Faithfulness · Answer Relevance · Context Precision) �
 ## Project Phases
 
 - [x] **Phase 0 — Scaffold**: repo structure, dependencies, CI skeleton, versioned prompt config
-- [ ] **Phase 1 — Ingestion**: EDGAR fetcher, table-aware parser, chunker, dual index (ChromaDB + BM25)
+- [x] **Phase 1 — Ingestion**: EDGAR fetcher, table-aware parser, chunker, dual index (ChromaDB + BM25)
 - [ ] **Phase 2 — Retrieval & Generation**: hybrid search, RRF, cross-encoder reranker, citation enforcer, Groq LLM
 - [ ] **Phase 3 — Evaluation & CI**: RAGAS offline evaluation, FiQA test set, GitHub Actions quality gate
 
