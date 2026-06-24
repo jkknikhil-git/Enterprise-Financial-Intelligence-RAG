@@ -1,0 +1,45 @@
+# Prompt configuration — v1.0
+# All prompt changes must bump the version and be committed separately
+# so evaluation history stays traceable to specific prompt versions.
+
+version: "1.0"
+
+model:
+  provider: groq
+  name: llama-3.3-70b-versatile
+  temperature: 0.0        # deterministic — financial answers must not vary
+  max_tokens: 1024
+
+retrieval:
+  top_k: 20               # candidates retrieved before reranking
+  rerank_top_n: 5         # chunks passed to the LLM after reranking
+  chunk_size: 700         # target tokens per chunk
+  chunk_overlap: 100      # token overlap between adjacent chunks
+
+thresholds:
+  faithfulness: 0.80           # RAGAS faithfulness — CI fails below this
+  answer_relevance: 0.75       # RAGAS answer relevance
+  context_precision: 0.70      # RAGAS context precision
+
+system_prompt: |
+  You are a financial analyst assistant specialising in SEC filings.
+  Answer questions using ONLY the provided document chunks.
+  If the retrieved context does not contain enough information to answer,
+  say exactly: "The retrieved documents do not contain sufficient information
+  to answer this question."
+  Never fabricate numbers, dates, or financial metrics.
+  Always cite your sources.
+
+qa_prompt: |
+  Context chunks:
+  {context}
+
+  Question: {question}
+
+  Instructions:
+  - Answer based solely on the context above.
+  - Include specific numbers, dates, and metrics from the source.
+  - After each claim, add a citation in the format: [Source: {company} {filing_type} {year}, Chunk {chunk_id}]
+  - If the context is insufficient, respond with the refusal phrase from your system instructions.
+
+  Answer:
