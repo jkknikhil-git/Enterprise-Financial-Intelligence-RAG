@@ -1,1 +1,1 @@
-"""Ingestion module: EDGAR fetcher, parser, chunker."""
+﻿"""Ingestion module: EDGAR fetcher, parser, chunker."""

@@ -1,1 +1,1 @@
-"""Indexing module: ChromaDB vector store and BM25 index."""
+﻿"""Indexing module: ChromaDB vector store and BM25 index."""
